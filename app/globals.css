@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --border-c: rgba(15, 23, 42, 0.12);
+  --text: #0f1a2e;
+  --muted: #56637a;
+  --accent: #d6472c;
+  --accent-2: #0e8f8a;
+  --chip-fe-bg: rgba(214, 71, 44, 0.1);
+  --chip-fe-text: #b93d26;
+  --chip-fs-bg: rgba(14, 143, 138, 0.1);
+  --chip-fs-text: #0b726e;
+  --chip-core-bg: rgba(15, 26, 46, 0.06);
+  --chip-core-text: #38445c;
+}
+
+.dark {
+  --bg: #0a1220;
+  --surface: #101b2e;
+  --border-c: rgba(255, 255, 255, 0.12);
+  --text: #e9eef6;
+  --muted: #8c9bb5;
+  --accent: #ff6a45;
+  --accent-2: #3fdcc8;
+  --chip-fe-bg: rgba(255, 106, 69, 0.14);
+  --chip-fe-text: #ff8a67;
+  --chip-fs-bg: rgba(63, 220, 200, 0.14);
+  --chip-fs-text: #5ce8d4;
+  --chip-core-bg: rgba(255, 255, 255, 0.07);
+  --chip-core-text: #c3ccdc;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+@layer components {
+  .nav-blur {
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-lg border px-3.5 py-2 font-mono text-[12.5px] no-underline transition-colors;
+    background: var(--surface);
+    border-color: var(--border-c);
+    color: var(--text);
+  }
+  .pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .pill-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .pill-primary:hover {
+    color: #fff;
+    opacity: 0.92;
+  }
+
+  .chip {
+    @apply rounded-md px-2.5 py-1.5 font-mono text-[12px];
+    background: var(--chip-core-bg);
+    color: var(--chip-core-text);
+  }
+  .chip-fe {
+    background: var(--chip-fe-bg);
+    color: var(--chip-fe-text);
+  }
+  .chip-fs {
+    background: var(--chip-fs-bg);
+    color: var(--chip-fs-text);
+  }
+
+  .card {
+    @apply rounded-xl border;
+    background: var(--surface);
+    border-color: var(--border-c);
+  }
+}
